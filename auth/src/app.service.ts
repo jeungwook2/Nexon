@@ -6,6 +6,6 @@ export class AppService {
     return 'Hello World!';
   }
   getBye():string{
-    return "Bye"
+    return "Bye222"
   }
 }
