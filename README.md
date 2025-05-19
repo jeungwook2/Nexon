@@ -42,7 +42,7 @@ JSON 형태 API 요청 방식
 - 요청방식 : Post
 - 요청 URL : http://localhost:3000/admin/login
 
-{
+- {
   "email": "admin",
   "pwd": "1234"
 }
