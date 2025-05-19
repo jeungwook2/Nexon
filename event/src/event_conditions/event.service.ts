@@ -23,8 +23,9 @@ export class EventService {
     //중복 등록 방지
     const realDB =  await this.eventConditionModel.find({code:attendance.code}).exec()
     const realDB2 =  await this.eventConditionModel.find({code:friendInvite.code}).exec()
-    if(realDB||realDB2){
-      throw new Error("이미 등록된 코드들입니다")
+
+    if (realDB.length > 0 || realDB2.length > 0) {
+      throw new Error("이미 등록된 코드들입니다");
     }
 
     const attendanceSetting = new this.eventConditionModel(attendance);

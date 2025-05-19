@@ -27,7 +27,6 @@ export class AuthController {
   }
   @Get('setting')
   async setting(){
-    
       return this.authService.setting();
   }
   //관리자만 유저 등록가능하도록 설계
