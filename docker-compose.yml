@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   gateway:
     build: ./gateway
@@ -28,8 +30,9 @@ services:
       - mongo
 
   mongo:
-    image: mongo:6.0
+    image: mongo:4.4
     container_name: mongodb
+    restart: always
     ports:
       - '27017:27017'
     volumes:

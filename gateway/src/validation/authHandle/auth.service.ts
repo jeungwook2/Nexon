@@ -61,7 +61,7 @@ export class AuthService {
   }
   //관리자 로그인
   async adminLogin(adminDto:{email:string;pwd:string}):Promise<any>{
-    const url = this.config.get<string>('AUTH_SERVICE_URL')+"/admin/login"
+    const url = this.config.get<string>('AUTH_SERVICE_URL')+"/admin/login";
     try {
       const response = await firstValueFrom(
         this.httpService.post(url, adminDto),
@@ -73,6 +73,7 @@ export class AuthService {
       throw new Error('Login failed: ' + error.message);
     }
   }
+  
 
   
-}
+}//class

@@ -5,9 +5,11 @@ import { JwtStrategy } from './jwt-auth/jwt.strategy';
 import { AuthController } from '../authHandle/auth.controller';
 import { AuthService } from '../authHandle/auth.service';
 import { HttpModule } from '@nestjs/axios';
-import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './role-guard/roles.guard';
 import { PassportModule } from '@nestjs/passport';
+import { EventModule } from '../eventHandle/event.module';
+import { EventService } from '../eventHandle/event.service';
+import { EventController } from '../eventHandle/event.controller';
 
 @Module({
   imports: [
@@ -23,8 +25,8 @@ import { PassportModule } from '@nestjs/passport';
       }),
     }),
   ],
-  controllers: [AuthController],
-  providers: [JwtStrategy,AuthService,RolesGuard],
-  exports: [JwtModule],
+  controllers: [AuthController,EventController],
+  providers: [JwtStrategy,AuthService,RolesGuard,EventService],
+  exports: [JwtModule,],
 })
 export class JwtAuthModule {}

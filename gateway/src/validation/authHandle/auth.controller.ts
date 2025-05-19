@@ -20,18 +20,19 @@ export class AuthController {
     // req.user 토큰에 저장되어있는 값
   }
 
-  @Post('auth/login')
+  @Post('user/login')
   async authLogin(@Body() loginDto: { email: string; pwd: string }) {
-     //예외를 이미 잡아서 던지기때문에 따로 예외처리를 하지 않았습니다.
-    
       return this.authService.authLogin(loginDto);
     
   }
   @Get('setting')
   async setting(){
-    //예외를 이미 잡아서 던지기때문에 따로 예외처리를 하지 않았습니다.
+    
       return this.authService.setting();
   }
+  //관리자만 유저 등록가능하도록 설계
+  @UseGuards(JwtAuthGuard,RolesGuard)
+  @Roles(Role.ADMIN)
   @Post('user/insert')
   async userInsert(@Body() userDto:CreateUserDto){
     return this.authService.userInsert(userDto);
@@ -47,6 +48,4 @@ export class AuthController {
   async test(){
     return "Hello";
   }
-
-
-}
+}//class

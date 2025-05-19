@@ -1,5 +1,4 @@
 import { IsArray, IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
-import { EventDocument } from "../schema/eventschema";
 import { Type } from "class-transformer";
 import { Types } from "mongoose";
 
@@ -16,14 +15,11 @@ class Reward {
 //출석 일수별 보상지급을 위한 코드
 class StepDto {
   day: number;
-  reward: Reward[];
+  reward: Reward;
 }
 
-export class CreateEventDto {
+export class EventDto {
 
-    save(): EventDocument | Promise<EventDocument> {
-      throw new Error('Method not implemented.');
-    }
 
       @IsString()
       title:string;

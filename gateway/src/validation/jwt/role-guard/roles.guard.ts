@@ -19,7 +19,7 @@ export class RolesGuard implements CanActivate {
     console.log("user",user)
     if (!user) {
       console.error('[RolesGuard] user 또는 role이 없습니다:', user);
-      return false; // 또는 throw new ForbiddenException()
+      return false; 
     }
     return requiredRoles.includes(user.role);
   }

@@ -2,37 +2,40 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import { CreateRewardDto } from './dto/update-reward.dto';
 
 @Controller('events')
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post()
-  create(@Body() createEventDto: CreateEventDto) {
+  async create(@Body() createEventDto: CreateEventDto) {
     // console.log("dto::",createEventDto);
-    return this.eventsService.createEvent(createEventDto);
+    try{
+      return await this.eventsService.createEvent(createEventDto);
+    }catch(err){
+      return {err:err.message};
+    }
+    
   }
   @Get()
   eventCodefindAll() {
     return this.eventsService.eventCodefindAll();
   }
   @Get('list')
-  activeEventfindAll() {
-    return this.eventsService.activeEventfindAll();
+  activeEventFindAll() {
+    return this.eventsService.activeEventFindAll();
   }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.eventsService.findOne(+id);
-  // }
+  @Get('list/:id')
+  activeEventDetail(@Param('id') id: string) {
+    console.log("들어온 값 :: ",id);
+    return this.eventsService.activeEventDetail(id);
+  }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto) {
-  //   return this.eventsService.update(+id, updateEventDto);
-  // }
+  @Post('addreward')
+  async addReward(@Body() inputDto:CreateRewardDto){
+    return await this.eventsService.addReward(inputDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.eventsService.remove(+id);
-  // }
 }

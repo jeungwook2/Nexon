@@ -1,4 +1,4 @@
-import { Body, Injectable } from '@nestjs/common';
+import {  Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -20,7 +20,7 @@ export class EventService {
       code: "INVITE",
       name: "초대 이벤트",
     }
-
+    //중복 등록 방지
     const realDB =  await this.eventConditionModel.find({code:attendance.code}).exec()
     const realDB2 =  await this.eventConditionModel.find({code:friendInvite.code}).exec()
     if(realDB||realDB2){
@@ -36,4 +36,4 @@ export class EventService {
 
     
   }
-}
+}//class

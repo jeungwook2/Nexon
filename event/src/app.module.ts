@@ -5,9 +5,12 @@ import { EventModule } from './event_conditions/event.module';
 import { Connection } from 'mongoose';
 import { RewardModule } from './reward/reward.module';
 import { EventsModule } from './events/events.module';
+import { ActionModule } from './action/action.module';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
+    HttpModule,
     //UserModule 에서 사용할 거니까 그보다 위에 로드 되어있어야함
     ConfigModule.forRoot({
       isGlobal: true, // env 파일을 사용할 configueModule 의 범위를 전역으로 설정
@@ -25,6 +28,7 @@ import { EventsModule } from './events/events.module';
     EventsModule,
     RewardModule,
     EventsModule,
+    ActionModule,
   ],
   controllers: [],
   providers: [],

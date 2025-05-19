@@ -1,5 +1,4 @@
-import { Type } from 'class-transformer';
-import { IsString, IsDateString, IsEnum, IsOptional, IsArray, ValidateNested } from 'class-validator';
+import { IsString} from 'class-validator';
 import { EventConditionDocument } from '../schema/eventConditionSchema';
 
 export class CreateEventDto {
