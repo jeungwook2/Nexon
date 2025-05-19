@@ -10,6 +10,7 @@ services:
     depends_on:
       - auth
       - event
+      - mongodb
 
   auth:
     build: ./auth
@@ -18,7 +19,7 @@ services:
     env_file:
       - ./auth/.env
     depends_on:
-      - mongo
+      - mongodb
 
   event:
     build: ./event
@@ -27,13 +28,15 @@ services:
     env_file:
       - ./event/.env
     depends_on:
-      - mongo
+      - mongodb
 
-  mongo:
+  mongodb:
     image: mongo:4.4
     container_name: mongodb
-    restart: always
     ports:
-      - '27017:27017'
+      - 27017:27017
     volumes:
-      - ./mongo/data:/data/db
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
