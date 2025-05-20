@@ -70,7 +70,8 @@ POSTMAN 설치 !!  JSON 형태 요청 방식으로 API 테스트가 가능합니
 
 *형식으로 추가해주시면  토큰 검증및 모든 기능 정상작동 가능합니다.
 - Key 값에는 Authorization
-- value 값에는 Bearer 토큰값 (공백과 "" 주의해주세요) 
+- value 값에는 Bearer 토큰값 (공백과 "" 주의해주세요)
+- ex) Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQ3NzA2MDE5LCJleHAiOjE3NDc3MDk2MTl9.IZwPETf-nnR2155TGltRJSZCb0bIBJDhc12G8meLFmg
 
 ---
 
