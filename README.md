@@ -68,9 +68,10 @@ POSTMAN 설치 !!  JSON 형태 요청 방식으로 API 테스트가 가능합니
 ---
 ## 추가하시는법 : PostMan 실행후 url입력공간 바로밑에 Headers(헤더) 있습니다.
 
-Key:value = 
-Authorization:Bearer 토큰값  
 *형식으로 추가해주시면  토큰 검증및 모든 기능 정상작동 가능합니다.
+- Key 값에는 Authorization
+- value 값에는 Bearer 토큰값 (공백과 "" 주의해주세요) 
+
 ---
 
 ### 유저 등록하기
